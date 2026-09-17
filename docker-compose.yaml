@@ -1,17 +1,9 @@
-version: '3'
 services:
   app:
-    image: realdreamcoding/docker-example:latest
+    build: .
+    image: docker-node-practice:2026
+    container_name: docker-node-practice
     ports:
-      - 8080:8080
-    depends_on:
-      - mysql
-
-  mysql:
-    image: mysql/mysql-server:8.0.25
-    command: --default-authentication-plugin=mysql_native_password
-
-    restart: always
+      - "8080:8080"
     environment:
-      MYSQL_ROOT_PASSWORD: secretRootPassword
-    
+      NODE_ENV: production
